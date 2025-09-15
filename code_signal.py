@@ -52,4 +52,56 @@ def makeArrayConsecutive2(statues):
 
 statues = [6, 2, 3, 8]
 
-print(makeArrayConsecutive2(statues))'''
+print(makeArrayConsecutive2(statues))
+
+# If Zero represents an empty room in a hotel, return the sum of all non-zero room numbers which do not have an empty room(zero) below it
+matrix = [[0, 1, 1, 2],
+          [0, 5, 0, 0],
+          [2, 0, 3, 3]]
+
+
+def matrixElementsSum(matrix):
+    rows = len(matrix)
+    columns = len(matrix[0])
+    cols = []
+    for c in range(columns):
+        col = []
+        for r in range(rows):
+            col.append(matrix[r][c])
+        cols.append(col)
+    print(cols)
+
+    sum = 0
+    for arr in cols:
+        for n in arr:
+            if n == 0:
+                break
+            sum += n
+    return sum 
+# alternate execution
+matrix = [[0, 1, 1, 2],
+          [0, 5, 0, 0],
+          [2, 0, 3, 3]]
+
+
+def matrixElementsSum(matrix):
+    rows = len(matrix)
+    columns = len(matrix[0])
+    sum = 0
+    for c in range(columns):
+        for r in range(rows):
+            if matrix[r][c] == 0:
+                break
+            sum += matrix[r][c]
+
+    return sum
+
+
+print(matrixElementsSum(matrix))
+
+def allLongestString(inputArray):
+    m = len(max(inputArray, key=len))
+    return [item for item in inputArray if len(item) == m]
+
+
+print(allLongestString(["aaa", "ab", "vf", "abh", "yht"]))'''
